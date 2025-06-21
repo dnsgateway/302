@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CareLift – Non-Emergency Medical Rides</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 100vh;
+    }
+
+    .left, .right {
+      flex: 1 1 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .left {
+      background: linear-gradient(145deg, #d5f3ec, #f2fcfb);
+      align-items: center;
+      text-align: center;
+    }
+
+    .left h1 {
+      font-size: 2.4em;
+      margin-bottom: 20px;
+      color: #007866;
+    }
+
+    .left p {
+      font-size: 1.1em;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .app-mockup {
+      width: 300px;
+      height: 600px;
+      border-radius: 24px;
+      background: url("https://via.placeholder.com/300x600.png?text=App+Mockup") no-repeat center center;
+      background-size: cover;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .right h2 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    form {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #007866;
+      color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .message {
+      margin-top: 15px;
+      color: green;
+    }
+
+    @media (max-width: 900px) {
+      .left, .right {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>CareLift</h1>
+      <p>A rideshare platform providing safe, reliable non-emergency medical transportation for low-income, elderly, and underserved communities.</p>
+      <div class="app-mockup" title="App demo mockup"></div>
+    </div>
+
+    <div class="right">
+      <h2>Try the Demo</h2>
+      <form id="demoForm">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" required />
+
+        <label for="location">Your ZIP Code</label>
+        <input type="text" id="location" required />
+
+        <label for="interest">What service are you most interested in?</label>
+        <select id="interest" required>
+          <option value="">Select</option>
+          <option value="ride">Requesting rides</option>
+          <option value="partner">Partnering as a driver</option>
+          <option value="clinic">Integrating with my clinic</option>
+        </select>
+
+        <button type="submit">Request Demo Access</button>
+        <p class="message" id="confirmationMsg"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('demoForm');
+    const msg = document.getElementById('confirmationMsg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      msg.innerText = "Thank you! A member of our team will reach out shortly.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
